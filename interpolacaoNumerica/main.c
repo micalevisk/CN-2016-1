@@ -14,11 +14,20 @@
 //	(1.1)	$	./polinomioNewton < arqEntradas
 //	(2.1)	$	./polinomioNewton
 //
-//	NOS DOIS CASOS, PODE-SE DEFINIR UMA OUTRA PRECISÃO (3 É A PADRÃO)
+//	O 'arqEntradas' DEVE OBEDECER AO SEGUINTE FORMATO:
+//	N
+//	X0 Y0
+//	X1 Y1
+//	...
+//	Xn-1 Yn-1
+//
+//	ONDE, 'N' É UM NÚMERO NATURAL QUE INDICA A QUANTIDAE DE PONTOS A SEREM LIDOS A SEGUIR.
+//
+//	NOS DOIS CASOS, PODE-SE AINDA DEFINIR UMA OUTRA PRECISÃO (SENDO 0.001 A PADRÃO)
 //	AO COMPILAR NA LINHA DE COMANDO:
 //	(a)	$	gcc -D PRECISAO -o polinomioNewton main.c
 //	(b)	$	gcc -D PRECISAO=p -o polinomioNewton main.c
-//	ONDE 'p' é um natural de 0 a 6
+//	ONDE 'p' É UM NATURAL DE 0 A 6 QUE INDICA O NÚMERO DE CASAS DECIMAIS.
 //
 //	SAÍDA:
 //	(o polinômio interpolador)
