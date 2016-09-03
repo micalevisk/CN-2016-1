@@ -2,13 +2,14 @@
 //	[main.c]
 //	Created by Micael Levi on 09/02/2016
 //	Copyright (c) 2016 mllc@icomp.ufam.edu.br; All rights reserved.
-//
+//	https://github.com/micalevisk/CompNumerica/tree/master/interpolacaoNumerica
+//	
 //	Calcula uma função interpoladora a partir de uma tabela de pontos.
 //
 //	USO:
 //	COMPILAR NA LINHA DE COMANDO:
-//	(1)	$	gcc -o polinomioNewton main.c
-//	(2)	$	gcc -D MANUAL -o polinomioNewton main.c
+//	(1)	$	gcc -D AUTO -o polinomioNewton main.c
+//	(2)	$	gcc -o polinomioNewton main.c
 //
 //	EXECUTAR NA LINHA DE COMANDO:
 //	(1.1)	$	./polinomioNewton < arqEntradas
@@ -54,12 +55,12 @@ int m=0;
 short lerValores(void){
 	unsigned i;
 
-	#ifdef MANUAL
+	#ifndef AUTO
 		printf(">> Digite no formato \"x f(x)\" (sem aspas) seguido de um ENTER a cada Xi\n");
 		printf("i\n");
 	#endif
 	for(i=0; i < nPontos; ++i){
-		#ifdef MANUAL
+		#ifndef AUTO
 			printf("%u: ", i);
 		#endif
 		if( scanf("%f %f", &valoresX[i], &valoresFx[i]) != 2 ) return 0;
@@ -110,7 +111,7 @@ int main(){
 	/*****************************************************************************/
 
 
-	#ifdef MANUAL
+	#ifndef AUTO
 		printf(">> Digite a quantidade de pontos (numero natural): ");
 	#endif
 	scanf("%u", &nPontos);
