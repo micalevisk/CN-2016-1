@@ -3,7 +3,7 @@
 //	Created by Micael Levi on 09/02/2016
 //	Copyright (c) 2016 mllc@icomp.ufam.edu.br; All rights reserved.
 //	https://github.com/micalevisk/CompNumerica/tree/master/interpolacaoNumerica
-//	
+//
 //	Calcula uma função interpoladora a partir de uma tabela de pontos.
 //
 //	USO:
@@ -134,7 +134,7 @@ int main(){
 				if(!X[k])
 					printf("(x)"); // caso Xi seja igual a zero.
 				else
-					printf("(x %c %.1f)", (ispositive ? '+' : '-'), (ispositive ? X[k] : (X[k]*-1)));
+					printf("(x %c %.1f)", (ispositive ? '-' : '+'), (ispositive ? X[k] : (X[k]*-1)));
 			}
 	}
 	printf("\n\n");
