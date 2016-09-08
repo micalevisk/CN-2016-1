@@ -20,7 +20,6 @@ CFLAGS = -w -g
 SRCS = main.c
 OBJS = $(SRCS:.c=.o)
 
-AUTO = 0
 MSGUSO1 = "USO: execute o programa \"$(MAIN)\" e siga as instrucoes."
 MSGUSO2 = "USO: crie um arquivo texto com o formato:\n\
 \nN\
@@ -31,7 +30,7 @@ MSGUSO2 = "USO: crie um arquivo texto com o formato:\n\
 \n\nonde, N = quantidade de pontos.\
 \nE execute na linha de comando: ./$(MAIN) < [arquivo criado]"
 
-ifeq (0,${AUTO})
+ifeq ($(origin AUTO), undefined)
 	MSGUSO = ${MSGUSO1}
 else
 	MSGUSO = ${MSGUSO2}
