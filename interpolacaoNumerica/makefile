@@ -39,18 +39,19 @@ endif
 
 .PHONY: clean
 
+all: $(MAIN)
 
 $(MAIN): $(OBJS)
 	$(CC) $(CFLAGS) -o  $@ $^
-	@echo $(MSGUSO)
+	@echo -e $(MSGUSO)
 
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@$(RM) $(OBJS) $(MAIN)
-	@echo "ARQUIVOS REMOVIDOS:\n$(OBJS) $(MAIN)"
+	@echo -e "ARQUIVOS REMOVIDOS:\n$(OBJS) $(MAIN)"
 
-clean-objs:
+mostlyclean:
 	@$(RM) $(OBJS)
-	@echo "OBJETOS REMOVIDOS:\n$(OBJS)"
+	@echo -e "OBJETOS REMOVIDOS."
