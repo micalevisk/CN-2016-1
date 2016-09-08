@@ -1,5 +1,5 @@
-Para compilar e executar o programa
-==============================
+Para compilar o código
+======================
 
 > **Usando o comando *make* na linha de comandos (no diretório em que o arquivo *makefile* está):**
 > - Para exibir as instruções durante o uso do programa:
