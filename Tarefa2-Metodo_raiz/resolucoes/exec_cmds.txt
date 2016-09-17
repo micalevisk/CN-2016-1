@@ -1,0 +1,46 @@
+f(x) "x^3 - 9x + 3" "0.01" "[0, 1]"	1
+g(x)"x^3 - x - 4" "0.03" "[0, 2]"	2
+h(x)"x^3 - 4x^2 + 2" "0.01" "[-1, 0]"	-1
+j(x) "x^2 - 2" "0.1" "[1, 2]"		2
+k(x) "3x^2 - 5x + 1" "0.02" "[0,1]"	2
+
+******************************************************************
+./metodo_bisseccao_tabela "x^3 - 9x + 3" "0.01" "[0, 1]"
+./metodo_bisseccao_tabela "x^3 - x - 4" "0.03" "[0, 2]"
+./metodo_bisseccao_tabela "x^3 - 4x^2 + 2" "0.01" "[-1, 0]"
+./metodo_bisseccao_tabela "x^2 - 2" "0.1" "[1, 2]"
+./metodo_bisseccao_tabela "3x^2 - 5x + 1" "0.02" "[0, 1]"
+
+(time ./prog1 "x^3 - 9x + 3" "0.01" "[0, 1]") 2>>bisseccao/tempos_execucao/t1.log
+(time ./prog1 "x^3 - x - 4" "0.03" "[0, 2]") 2>>bisseccao/tempos_execucao/t2.log
+(time ./prog1 "x^3 - 4x^2 + 2" "0.01" "[-1, 0]") 2>>bisseccao/tempos_execucao/t3.log
+(time ./prog1 "x^2 - 2" "0.1" "[1, 2]") 2>>bisseccao/tempos_execucao/t4.log
+(time ./prog1 "3x^2 - 5x + 1" "0.02" "[0, 1]") 2>>bisseccao/tempos_execucao/t5.log
+===============================================================
+
+./metodo_falsaPosicao_tabela "x^3 - 9x + 3" "0.01" "[0, 1]"
+./metodo_falsaPosicao_tabela "x^3 - x - 4" "0.03" "[0, 2]"
+./metodo_falsaPosicao_tabela "x^3 - 4x^2 + 2" "0.01" "[-1, 0]"
+./metodo_falsaPosicao_tabela "x^2 - 2" "0.1" "[1, 2]"
+./metodo_falsaPosicao_tabela "3x^2 - 5x + 1" "0.02" "[0, 1]"
+
+(time ./prog2 "x^3 - 9x + 3" "0.01" "[0, 1]") 2>>falsaPosicao/tempos_execucao/t1.log
+(time ./prog2 "x^3 - x - 4" "0.03" "[0, 2]") 2>>falsaPosicao/tempos_execucao/t2.log
+(time ./prog2 "x^3 - 4x^2 + 2" "0.01" "[-1, 0]") 2>>falsaPosicao/tempos_execucao/t3.log
+(time ./prog2 "x^2 - 2" "0.1" "[1, 2]") 2>>falsaPosicao/tempos_execucao/t4.log
+(time ./prog2 "3x^2 - 5x + 1" "0.02" "[0, 1]") 2>>falsaPosicao/tempos_execucao/t5.log
+===============================================================
+
+./metodo_newtonRaphson_tabela "x^3 - 9x + 3" "0.01" "1"
+./metodo_newtonRaphson_tabela "x^3 - x - 4" "0.03" "2"
+./metodo_newtonRaphson_tabela "x^3 - 4x^2 + 2" "0.01" "-1"
+./metodo_newtonRaphson_tabela "x^2 - 2" "0.1" "2"
+./metodo_newtonRaphson_tabela "3x^2 - 5x + 1" "0.02" "2"
+
+(time ./prog3 "x^3 - 9x + 3" "0.01" "1") 2>>newtonRaphson/tempos_execucao/t1.log
+(time ./prog3 "x^3 - x - 4" "0.03" "2") 2>>newtonRaphson/tempos_execucao/t2.log
+(time ./prog3 "x^3 - 4x^2 + 2" "0.01" "-1") 2>>newtonRaphson/tempos_execucao/t3.log
+(time ./prog3 "x^2 - 2" "0.1" "2") 2>>newtonRaphson/tempos_execucao/t4.log
+(time ./prog3 "3x^2 - 5x + 1" "0.02" "2") 2>>newtonRaphson/tempos_execucao/t5.log
+
+******************************************************************

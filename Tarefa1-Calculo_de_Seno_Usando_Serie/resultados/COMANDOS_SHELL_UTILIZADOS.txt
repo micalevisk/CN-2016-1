@@ -1,0 +1,33 @@
+$ source ./_serieSeno
+Para usar: seriSeno X ITERACOES
+
+
+$ for x in 0 30 45 60 90 180 270 360
+> do 
+> serieSeno $x $iteracoes
+> done 
+> "resultados/exato_simples($iteracoes).txt"
+
+$ for x in 0 30 45 60 90 180 270 360; do serieSeno $x $iteracoes; done > exato_simples\($iteracoes\).txt
+variável 'x' representa o seno a ser calculado;
+variável 'iteracoes' representa a quantidade de termos do somatório;
+
+
+A cada arquivo gerado:
+Extrae-se somente os valores, com o comando
+$ grep -Po '(?<== )[+-]?\d+.*' "exato_simples($iteracoes).txt" | tr '.' ','
+
+
+Para ler o seno calculado pelo programa cujo resultados estão programa_simples.txt
+$ sed -n '$I,$F p' programa_simples.txt  |  grep -Po '(?<=\| )([+-.\d]+)'  | tr '.' ','
+
+Para ler o tempo de cada teste que estão em programa_simples.txt
+$ sed -n '$I,$F p' programa_simples.txt | grep -Po '[,\d]+(?=s)'
+
+variável 'I' é a linha inicial dos dados 	 (seno de 0)
+variável 'F' é a linha do último dado registrado (seno de 360)
+
+
+
+Para converter quebra de linha do UNIX para o formato DOS:
+$ sed -i 's/$'"/`echo \\\r`/" "exato_simples($iteracoes).txt"

@@ -1,0 +1,47 @@
+$ echo "( (-1^N)*(X^(2*N+1)) ) / fatorial(2*N+1)"
+
+=======================================================================
+        número de somas: 5
+   Angulo (em graus):   | Seno:
+1. 0                    | +0.00				0,558s
+2. 30                   | +0.50				0,583s
+3. 45                   | +0.707106769084930420000	0,608s
+4. 60                   | +0.866025507450103760000	0,607s
+5. 90                   | +1.000003457069397000000	0,622s
+6. 180                  | +0.006925240159034729000	0,612s
+7. 270                  | -0.444365829229354860000	0,602s
+8. 360                  | +11.899566650390625000000	0,591s
+
+=======================================================================
+        número de somas: 10
+   Angulo (em graus):   | Seno:
+1. 0                    | +0.000000000000000000000		0,584s
+2. 30                   | +0.500000000000000000000		0,585s
+3. 45                   | +0.707106769084930420000		0,809s
+4. 60                   | +0.866025447845458980000		0,607s
+5. 90                   | +0.999951660633087160000		0,621s
+6. 180                  | -25.403436660766602000000		0,604s
+7. 270                  | -56379.917968750000000000000		0,596s
+8. 360                  | -13339995.000000000000000000000	0,629s
+
+===========================================================================
+        número de somas: 15
+   Angulo (em graus):   | Seno:
+1. 0                    | +0.000000000000000000000		0,576s
+2. 30                   | +0.500000000000000000000		0,584s
+3. 45                   | +0.707106769084930420000		0,606s
+4. 60                   | +0.866025447845458980000		0,595s
+5. 90                   | +0.999983370304107670000		0,558s
+6. 180                  | +68737.390625000000000000000		0,673s
+7. 270                  | +9960177664.000000000000000000000	0,584s
+8. 360                  | +43611139866624.000000000000000000000	0,626s
+
+==============================================================================
+
+Debugging 1.#IND, 1.#INF, nan, and inf
+
+If your operation would generate a larger positive number than could be stored in a double, the operation will return 1.#INF on Windows or inf on Linux. Similarly your code will return -1.#INF or -inf if the result would be a negative number too large to store in a double. Dividing a positive number by zero produces a positive infinity and dividing a negative number by zero produces a negative infinity. Example code at the end of this page will demonstrate some operations that produce infinities.
+
+Some operations don't make mathematical sense, such as taking the square root of a negative number. (Yes, this operation makes sense in the context of complex numbers, but a double represents a real number and so there is no double to represent the result.) The same is true for logarithms of negative numbers. Both sqrt(-1.0) and log(-1.0) would return a NaN, the generic term for a "number" that is "not a number". Windows displays a NaN as -1.#IND ("IND" for "indeterminate") while Linux displays nan. Other operations that would return a NaN include 0/0, 0*8, and 8/8. See the sample code below for examples.
+
+In short, if you get 1.#INF or inf, look for overflow or division by zero. If you get 1.#IND or nan, look for illegal operations. Maybe you simply have a bug. If it's more subtle and you have something that is difficult to compute, see Avoiding Overflow, Underflow, and Loss of Precision. That article gives tricks for computing results that have intermediate steps overflow if computed directly
