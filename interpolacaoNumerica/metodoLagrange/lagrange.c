@@ -4,7 +4,7 @@
 //	Copyright (c) 2016 mllc@icomp.ufam.edu.br; All rights reserved.
 //	https://github.com/micalevisk/CompNumerica/tree/master/interpolacaoNumerica/polinomioDeLagrange
 //
-//	Calcula uma função interpoladora a partir de uma tabela de pontos usando o polinômio de Lagrange.
+//	Calcula uma função interpoladora a partir de uma tabela de pontos usando o Método de Lagrange.
 //	USO: vide o cabeçalho "lagrange.h"
 //
 

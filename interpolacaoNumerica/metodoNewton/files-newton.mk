@@ -7,5 +7,5 @@
 # MAIN		= nome do programa executavel
 # SRCS		= nome dos arquivos de codigo-fonte com extensao .c
 
-MAIN = formaDeNewton
+MAIN = polinomioNewton
 SRCS = newton.c

@@ -2,9 +2,9 @@
 //	[newton.c]
 //	Created by Micael Levi on 09/02/2016
 //	Copyright (c) 2016 mllc@icomp.ufam.edu.br; All rights reserved.
-//	https://github.com/micalevisk/CompNumerica/tree/master/interpolacaoNumerica/formaDeNewton
+//	https://github.com/micalevisk/CompNumerica/tree/master/interpolacaoNumerica/polinomioDeNewton
 //
-//	Calcula uma função interpoladora a partir de uma tabela de pontos usando a Forma de Newton.
+//	Calcula uma função interpoladora a partir de uma tabela de pontos usando o Método de Newton.
 //	USO: vide o cabeçalho "newton.h"
 //
 
