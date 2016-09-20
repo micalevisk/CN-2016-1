@@ -1,5 +1,5 @@
 //
-//	[lagrange.c]
+//	[lagrange.c.All]
 //	Created by Micael Levi on 09/19/2016
 //	Copyright (c) 2016 mllc@icomp.ufam.edu.br; All rights reserved.
 //	https://github.com/micalevisk/CompNumerica/tree/master/interpolacaoNumerica/polinomioDeLagrange
@@ -78,8 +78,8 @@ short lerValoresParaTabela(Tupla* tabela, unsigned qtdPontos){
 
 
 
-int main(){
-
+int main()
+{
 
 	/*****************************************************************************/
 	char* FORMATO = calloc(11, sizeof(char));
