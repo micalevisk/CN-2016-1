@@ -1,0 +1,75 @@
+##
+##	[Makefile.global]
+##	Created by Micael Levi on 09/20/2016
+##	Copyright (c) 2016 mllc@icomp.ufam.edu.br; All rights reserved.
+##
+
+
+CC = @gcc -std=gnu99
+CFLAGS = -w -g
+OBJS = $(SRCS:.c=.o)
+
+MSGUSO1 = "USO: execute o programa \"$(MAIN)\" e siga as instrucoes."
+MSGUSO2 = "USO: crie um arquivo texto com o formato:\n\
+\n[valor a interpolar]\
+\nN\
+\nX0 Y0\
+\nX1 Y1\
+\n...\
+\nXn-1 Yn-1\
+\n\nonde, N = quantidade de pontos.\
+\nE execute na linha de comando: ./$(MAIN) < [arquivo criado]"
+
+MSGPRECISAO1 = "PRECISAO DEFINIDA COMO 10^(-3)"
+MSGPRECISAO2 = "PRECISAO DEFINIDA COMO 10^(-$(PRECISAO))"
+
+
+####################################
+ifeq ($(origin AUTO), undefined)
+	MSGUSO = ${MSGUSO1}
+else
+	MSGUSO = ${MSGUSO2}
+	CFLAGS += -D AUTO
+endif
+
+ifneq ($(origin MOSTRAR), undefined)
+	CFLAGS += -D MOSTRAR
+endif
+
+ifeq ($(origin PRECISAO), undefined)
+	MSGPRECISAO = ${MSGPRECISAO1}
+else
+	MSGPRECISAO = ${MSGPRECISAO2}
+	CFLAGS += -D PRECISAO=$(PRECISAO)
+endif
+####################################
+
+
+##########################################
+PRINT = @echo
+ifeq ($(shell uname -o), Cygwin)
+  # Cygwin flags
+  PRINT += -e
+endif
+##########################################
+
+
+.PHONY: clean
+
+all: $(MAIN)
+
+$(MAIN): $(OBJS)
+	$(CC) $(CFLAGS) -o  $@ $^
+	$(PRINT) $(MSGUSO)
+	$(PRINT) $(MSGPRECISAO)
+
+.c.o:
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	@$(RM) $(OBJS) $(MAIN)
+	$(PRINT) "ARQUIVOS REMOVIDOS:\n$(OBJS) $(MAIN)"
+
+mostlyclean:
+	@$(RM) $(OBJS)
+	$(PRINT) "OBJETOS REMOVIDOS."
